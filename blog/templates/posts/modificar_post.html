@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load template_tags %}
+{% block contenido %}
+<center>
+{% if user.is_superuser or request.user|has_group:'Colaborador' %}
+    <div class="container" style="margin: 30px">
+            <a href="{% url 'apps.posts:crear_categoria' %}?next={% url 'apps.posts:post_update' pk=object.id %}" id="boton_post">
+            Crear nueva categoría
+            </a>
+        <br>
+        <h1>Modificar post</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Guardar cambios">
+        </form>
+    </div>
+{% else %}
+    <div class="container" style="margin: 300px;">
+        <h1>Solo usuarios con permisos pueden acceder a esta página</h1>
+    </div>
+{% endif %}
+</center>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load template_tags %}
+{% block contenido %}
+<center>
+    <div class="container" style="margin: 200px;">
+        <h1>Categorias</h1>
+        <br>
+        <ul>
+            {% for categoria in categorias %}
+                <li>{{ categoria.nombre }}</li>
+                <a href="{% url 'apps.posts:posts_por_categoria' pk=categoria.pk %}" style="color: black;">
+                    Ingresar
+                {% if user.is_superuser or es_colaborador %}
+                </a>
+                <a href="{% url 'apps.posts:categoria_delete' pk=categoria.pk %}" style="color: black;">
+                Eliminar
+                </a>
+                {% endif %}
+            {% empty %}
+                <li>No hay categorías</li>
+            {% endfor %}
+        </ul>
+    </div>
+</center>
+{% endblock %}

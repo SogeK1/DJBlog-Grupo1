@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container mt-4">
+    <center>
+        <form method="POST" enctype="multipart/form-data" style="margin-top: 300px; margin-bottom: 100px;">
+            <h1 class="h1">Registro de usuarios</h1>
+            <div class="mb-3">
+                {% for message in messages %}
+                    <table {% if message.tags %} class="{{ message.tags }}" {% endif %}> {{ message }}</table>
+                {% endfor %}
+            </div>
+            {% csrf_token %}
+            <div class="container-fluid">
+                <div class="mb-2">
+                    {{ form.username.label_tag }}
+                </div>
+                <div class="mb-3">
+                    {{ form.username }}
+                    {{ form.username.errors }}
+                </div>
+                <div class="mb-2">
+                    {{ form.first_name.label_tag }}
+                </div>
+                <div class="mb-3">
+                    {{ form.first_name }}
+                    {{ form.first_name.errors }}
+                </div>
+                <div class="mb-2">
+                    {{ form.last_name.label_tag }}
+                </div>
+                <div class="mb-3">
+                    {{ form.last_name }}
+                    {{ form.last_name.errors }}
+                </div>
+                <div class="mb-2">
+                    {{ form.email.label_tag }}
+                </div>
+                <div class="mb-3">
+
+                    {{ form.email }}
+                    {{ form.email.errors }}
+                </div>
+                <div class="mb-2">
+                    {{ form.password1.label_tag }}
+                </div>
+                <div class="mb-3">
+                        {{ form.password1 }}
+                    {{ form.password1.errors }}
+                </div>
+                <div class="mb-2">
+                    {{ form.password2.label_tag }}
+                </div>
+                <div class="mb-3">
+
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
+                </div>
+                <div class="mb-2">
+                    {{ form.imagen.label_tag }}
+                </div>
+                <div class="mb-3">
+                    {{ form.imagen }}
+                    {{ form.imagen.errors }}
+                </div>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success btn-lg px-3">Registrar</button>
+            </div>
+        </form>
+    </center>
+</div>
+{% endblock %}

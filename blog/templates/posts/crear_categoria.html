@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load template_tags %}
+{% block contenido %}
+
+<center>
+{% if user.is_superuser or request.user|has_group:'Colaborador' %}
+    <div class="container" style="margin: 200px;">
+        <h1>
+            Agregar nueva categoria
+        </h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Agregar">
+        </form>
+        <div class="container" style="margin-top: 300px;">
+            <a href="{% url 'apps.posts:categoria_list' %}" id="boton_post">
+                Listar todas las categorias
+            </a>
+        </div>
+    </div>
+{% else %}
+    <div class="container" style="margin: 300px;">
+    <h1>   
+        Solo usuarios con permisos pueden acceder a esta página
+    </h1>
+    </div>
+{% endif %}
+</center>
+{% endblock %}

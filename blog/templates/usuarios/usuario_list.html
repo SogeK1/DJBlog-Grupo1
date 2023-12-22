@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load template_tags %}
+{% block contenido %}
+<center>
+{% if user.is_superuser or request.user|has_group:'Colaborador' %}
+    <div class="container" style="margin: 200px;">
+        <h1>Usuarios</h1>
+        <br>
+        <ul>
+            {% for usuario in usuarios %}
+                <li>{{ usuario.username }}</li>
+                <a href="{% url 'apps.usuario:usuario_delete' pk=usuario.pk %}" style="color: black;">
+                Eliminar
+                </a>
+            {% empty %}
+                <li>No hay usuarios</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% else %}
+    <div class="container" style="margin: 300px;">
+        <h1>Solo usuarios con permisos pueden acceder a esta página</h1>
+    </div>
+{% endif %}
+</center>
+{% endblock %}
