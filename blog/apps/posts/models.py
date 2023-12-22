@@ -4,7 +4,11 @@ from django.conf import settings
 
 # Create your models here.
 
-# Categoria
+'''
+ este código define un modelo llamado Categoria con un campo nombre que 
+ representa el nombre de la categoría. Este modelo se puede utilizar 
+ para almacenar y recuperar información sobre diferentes categorías en la base de datos.
+'''
 class Categoria(models.Model):
     nombre = models.CharField(max_length=30, null=False)
 

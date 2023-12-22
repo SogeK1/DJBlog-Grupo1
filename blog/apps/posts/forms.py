@@ -23,13 +23,50 @@ class ComentarioForm(forms.ModelForm):
         En este caso, solo se incluirá el campo texto del modelo Comentario.
         '''
         fields = ['texto']
+
+'''
+Aquí se define una nueva clase llamada CrearPostForm que hereda de forms.ModelForm. 
+Esta clase se utiliza para crear un formulario basado en el modelo Post.
+'''
 class CrearPostForm(forms.ModelForm):
+    
+    '''
+    Dentro de la clase CrearPostForm, se define una clase interna llamada Meta. 
+    La clase Meta se utiliza para proporcionar metadatos asociados al formulario.
+    '''
     class Meta:
+        
+        '''
+        Se especifica el modelo al que está vinculado el formulario.
+        '''
         model = Post
+        
+        '''
+        Indica que se deben incluir todos los campos del modelo en el formulario. 
+        En otras palabras, el formulario contendrá campos para todos los campos del modelo Post.
+        '''
         fields = '__all__'
 
+'''
+Aquí se define una nueva clase llamada NuevaCategoriaForm que hereda de forms.ModelForm. 
+Esta clase se utiliza para crear un formulario basado en el modelo Categoria.
+'''
 class NuevaCategoriaForm(forms.ModelForm):
+    
+    '''
+    Dentro de la clase CrearPostForm, se define una clase interna llamada Meta. 
+    La clase Meta se utiliza para proporcionar metadatos asociados al formulario.
+    '''
     class Meta:
+        
+        '''
+        Se especifica el modelo al que está vinculado el formulario.
+        '''
         model = Categoria
+        
+        '''
+        Indica que se deben incluir todos los campos del modelo en el formulario. 
+        En otras palabras, el formulario contendrá campos para todos los campos del modelo Post.
+        '''
         fields = '__all__'
         

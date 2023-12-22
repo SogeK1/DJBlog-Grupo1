@@ -7,7 +7,7 @@ from .models import Categoria, Post, Comentario
 
 # declaramos una clase Para luego poder 
 # usar un "list_display" con los atributos 
-# que queramos mostrar
+# que queramos mostrar en el panel admin
 class PostsAdmin(admin.ModelAdmin):
     list_display = ('id', 'titulo', 'subtitulo', 'fecha', 'texto',
                     'activo', 'categoria', 'imagen', 'publicado',)
