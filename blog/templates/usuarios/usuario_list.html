@@ -8,8 +8,8 @@
         <br>
         <ul>
             {% for usuario in usuarios %}
-                <li>{{ usuario.username }}</li>
-                <a href="{% url 'apps.usuario:usuario_delete' pk=usuario.pk %}" style="color: black;">
+                <li><h4>{{ usuario.username }}</h4></li>
+                <a class="btn btn-danger" href="{% url 'apps.usuario:usuario_delete' pk=usuario.pk %}" style="color: black;">
                 Eliminar
                 </a>
             {% empty %}

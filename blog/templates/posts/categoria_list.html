@@ -7,12 +7,12 @@
         <br>
         <ul>
             {% for categoria in categorias %}
-                <li>{{ categoria.nombre }}</li>
-                <a href="{% url 'apps.posts:posts_por_categoria' pk=categoria.pk %}" style="color: black;">
+                <li><h3>{{ categoria.nombre }}</h3></li>
+                <a class="btn btn-success" href="{% url 'apps.posts:posts_por_categoria' pk=categoria.pk %}">
                     Ingresar
                 {% if user.is_superuser or es_colaborador %}
                 </a>
-                <a href="{% url 'apps.posts:categoria_delete' pk=categoria.pk %}" style="color: black;">
+                <a class="btn btn-danger" href="{% url 'apps.posts:categoria_delete' pk=categoria.pk %}">
                 Eliminar
                 </a>
                 {% endif %}

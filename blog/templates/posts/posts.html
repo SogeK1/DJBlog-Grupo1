@@ -4,64 +4,67 @@
 
 <div class="container mt-5">
 
-    {% if user.is_superuser or request.user|has_group:"Colaborador" %}
-    <div class="container mb-3">
-        <a href="{% url 'apps.posts:crear_post' %}" class="btn btn-success">
-            Crear nuevo post
-        </a>
-    </div>
-    {% endif %}
-
     <div class="row">
         <div class="col-md-6">
             <h2>Ordenar por:</h2>
             <ul class="list-unstyled">
                 <li class="mb-2">
-                    <a href="{% url 'apps.posts:posts' %}?orden=reciente" class="btn btn-success">
+                    <a href="{% url 'apps.posts:posts' %}?orden=reciente" class="btn btn-secondary">
                         Más reciente
                     </a>
                 </li>
                 <li class="mb-2">
-                    <a href="{% url 'apps.posts:posts' %}?orden=antiguo" class="btn btn-success">
+                    <a href="{% url 'apps.posts:posts' %}?orden=antiguo" class="btn btn-secondary">
                         Más antiguo
                     </a>
                 </li>
                 <li class="mb-2">
-                    <a href="{% url 'apps.posts:posts' %}?orden=titulo" class="btn btn-success">
+                    <a href="{% url 'apps.posts:posts' %}?orden=titulo" class="btn btn-secondary">
                         Alfabético
                     </a>
                 </li>
             </ul>
+            <div class="col-md-6">
+                <h2>Categorías:</h2>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="{% url 'apps.posts:categoria_list' %}" class="btn btn-secondary">
+                            Listar todas las categorías
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
         </div>
 
-        <div class="col-md-6">
-            <h2>Categorías:</h2>
-            <ul class="list-unstyled">
-                <li class="mb-2">
-                    <a href="{% url 'apps.posts:categoria_list' %}" class="btn btn-success">
-                        Listar todas las categorías
-                    </a>
-                </li>
-            </ul>
-        </div>
+        
+
+    {% if user.is_superuser or request.user|has_group:"Colaborador" %}
+    <div class="container mb-3 d-flex justify-content-center">
+        <a href="{% url 'apps.posts:crear_post' %}" class="btn btn-success">
+            Crear nuevo post
+        </a>
     </div>
+{% endif %}
 
+<div class="d-flex justify-content-center">
     {% for post in posts %}
-    <div class="card mt-4">
-        <div class="card-body">
-            <h3 class="card-title">{{ post.titulo }}</h3>
-            <p class="card-text">{{ post.subtitulo }}</p>
-            <p class="card-text"><small class="text-muted">Categoría: {{ post.categoria }}</small></p>
-            <a href="{% url 'apps.posts:post_individual' post.id %}" class="btn btn-success">
-                Seguir leyendo
-            </a>
+        <div class="card mt-4" style="max-width: 600px;">
+            <div class="card-body">
+                <h3 class="card-title">{{ post.titulo }}</h3>
+                <p class="card-text">{{ post.subtitulo }}</p>
+                <p class="card-text"><small class="text-muted">Categoría: {{ post.categoria }}</small></p>
+                <a href="{% url 'apps.posts:post_individual' post.id %}" class="btn btn-success">
+                    Seguir leyendo
+                </a>
+            </div>
         </div>
-    </div>
     {% empty %}
-    <div class="alert alert-warning mt-4" role="alert">
-        No hay registros
-    </div>
+        <div class="alert alert-warning mt-4" role="alert">
+            No hay registros
+        </div>
     {% endfor %}
+</div>
 
 </div>
 

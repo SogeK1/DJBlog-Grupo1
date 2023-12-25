@@ -1,0 +1,6 @@
+.env
+*.log
+*.pyc
+*.pot
+__pycache__
+/blog/configuraciones/

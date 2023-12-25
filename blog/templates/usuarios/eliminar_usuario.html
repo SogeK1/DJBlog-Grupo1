@@ -8,13 +8,14 @@
         <p>
             ¿Estás seguro de que quieres eliminar al usuario '{{ object.username }}'?
         </p>
+        <br>
         <form action="" method="post">
             {% csrf_token %}
             <label for="eliminar_comentarios">
                 ¿Desea eliminar también los comentarios del usuario?
             </label>
             <input type="checkbox" name="eliminar_comentarios" id="eliminar_comentarios">
-            <br><br>
+            <br>
             {% if user.is_superuser or es_colaborador %}
             <label for="eliminar_posts">
                 ¿Desea eliminar también los posts del usuario?
@@ -22,8 +23,8 @@
             <input type="checkbox" name="eliminar_posts" id="eliminar_posts">
             <br><br>
             {% endif %}
-            <input type="submit" value="Sí, eliminar">
-            <a href="{% url 'apps.usuario:usuario_list' %}" style="color: black;">
+            <input class="btn btn-danger" type="submit" value="Sí, eliminar">
+            <a class="btn btn-secondary" href="{% url 'apps.usuario:usuario_list' %}">
                 No, cancelar
             </a>
         </form>

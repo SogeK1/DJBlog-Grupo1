@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse, reverse_lazy
 from django.conf import settings
 
 # Create your models here.
@@ -72,4 +73,7 @@ class Comentario(models.Model):
     
     def __str__ (self):
         return self.texto
+    
+    def get_absolute_url(self):
+        return reverse('apps.posts:posts')
     

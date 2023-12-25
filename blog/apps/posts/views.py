@@ -506,5 +506,5 @@ class ComentarioDeleteView(LoginRequiredMixin, DeleteView):
     vista individual de ese post.
     '''
     def get_success_url(self):
-        return reverse('apps.posts:post_individual', args=[self.object.posts.id])
+        return reverse_lazy('apps.posts:post_individual', args=[self.object.posts.id])
     

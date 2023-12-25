@@ -21,6 +21,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+'''
+handler404 = pagina_404 se utiliza para personalizar el manejo de errores 404 en tu aplicación Django, utilizando la función pagina_404.
+'''
 handler404 = pagina_404
 
 urlpatterns = [

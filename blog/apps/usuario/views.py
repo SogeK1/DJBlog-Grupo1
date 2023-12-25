@@ -38,7 +38,7 @@ class RegistrarUsuario(CreateView):
         messages.success(self.request, 'Registro exitoso. Porfavor, inicia sesión.')
         group = Group.objects.get(name='Registrado')
         self.object.groups.add(group)
-        return redirect('apps.usuario:registrar')
+        return redirect('index')
         # form.save()
     
 
@@ -89,7 +89,7 @@ class LogoutUsuario(LogoutView):
     def get_success_url(self):
         messages.success(self.request, 'Cerraste sesión')
         
-        return reverse('apps.usuario:logout')
+        return reverse('index')
 
 '''
 Se define la clase UsuarioListView, que hereda tanto de LoginRequiredMixin como de ListView. 
@@ -175,3 +175,4 @@ class UsuarioDeleteView(LoginRequiredMixin, DeleteView):
             messages.success(request,f'usuario {self.object.username} eliminado correctamente')
             return self.delete(request, *args, **kwargs)
         
+        return super().post(request, *args, **kwargs)

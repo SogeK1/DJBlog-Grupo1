@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load template_tags %}
 {% block contenido %}
 <center>
@@ -9,8 +10,8 @@
         </p>
         <form action="" method="post">
             {% csrf_token %}
-            <input type="submit" value="Sí, eliminar">
-            <a href="{{ object.get_absolute_url }}" style="color: black;">
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            <a href="{{ object.get_absolute_url }}" class="btn btn-secondary">
                 No, cancelar
             </a>
         </form>

@@ -11,10 +11,10 @@
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Agregar">
+            <input class="btn btn-success" type="submit" value="Agregar">
         </form>
         <div class="container" style="margin-top: 300px;">
-            <a href="{% url 'apps.posts:categoria_list' %}" id="boton_post">
+            <a class="btn btn-secondary" href="{% url 'apps.posts:categoria_list' %}" id="boton_post">
                 Listar todas las categorias
             </a>
         </div>

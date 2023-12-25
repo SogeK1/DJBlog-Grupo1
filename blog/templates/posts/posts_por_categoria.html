@@ -6,7 +6,7 @@
             {% if posts %}
                 <ul>
                     {% for post in posts %}
-                        <li><a href="{% url 'apps.posts:post_individual' id=post.id %}">{{ post.titulo }}</a></li>
+                        <li><a class="btn btn-success" href="{% url 'apps.posts:post_individual' id=post.id %}">{{ post.titulo }}</a></li>
                         <p>{{ post.texto }}</p>
                     {% endfor %}
                 </ul>

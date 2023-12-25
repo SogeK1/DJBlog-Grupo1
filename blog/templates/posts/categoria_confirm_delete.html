@@ -10,8 +10,8 @@
         </p>
         <form action="" method="post">
             {% csrf_token %}
-            <input type="submit" value="Sí, eliminar">
-            <a href="{% url 'apps.posts:categoria_list' %}" style="color: black;">
+            <input class="btn btn-danger" type="submit" value="Sí, eliminar">
+            <a class="btn btn-secondary" href="{% url 'apps.posts:categoria_list' %}">
                 No, cancelar
             </a>
         </form>

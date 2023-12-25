@@ -1,14 +1,15 @@
+{% extends 'base.html' %}
 {% load template_tags %}
 {% block contenido %}
-    <div class="container mt-5">
-        <center>
+    <div class="container mt-5 d-flex justify-content-center align-items-center">
+        <div>
             {% if user.is_superuser or comentario.usuario == user %}
                 <div class="container">
                     <h1>Editar comentario</h1>
                     <form action="" method="post">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <input type="submit" class="btn btn-primary" value="Guardar cambios">
+                        <input type="submit" class="btn btn-success" value="Guardar cambios">
                     </form>
                 </div>
             {% else %}
@@ -16,6 +17,6 @@
                     <h1>Solo usuarios con permisos pueden acceder a esta página</h1>
                 </div>
             {% endif %}
-        </center>
+        </div>
     </div>
 {% endblock %}
